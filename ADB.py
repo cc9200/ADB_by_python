@@ -56,12 +56,16 @@ def unlock(password=''):
     os.system(cmd)
     return input_text(password)
 
-def play():
+def media_play():
     cmd='adb shell input keyevent KEYCODE_MEDIA_PLAY'
     return os.system(cmd)
 
-def stop():
+def media_stop():
     cmd='adb shell input keyevent KEYCODE_MEDIA_STOP'
+    return os.system(cmd)
+
+def media_next():
+    cmd='adb shell input keyevent KEYCODE_MEDIA_NEXT'
     return os.system(cmd)
 
 def input_text(text=''):
@@ -69,4 +73,7 @@ def input_text(text=''):
     return os.system(cmd)
 
 if __name__=='__main__':
-    unlock('091297')
+#    unlock('091297')
+#    media_play()
+    media_next()
+    
