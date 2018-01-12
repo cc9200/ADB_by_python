@@ -42,5 +42,15 @@ def screen_shot(devices_index=0,phone_path='/sdcard/screen_shot_temp1.png',cpu_p
         plt.imshow(img)
         plt.show()
     return temp_path
+
+def tap(x,y):
+    cmd='adb shell input tap {0} {1}'.format(x,y)
+    return os.system(cmd)
+
+def swipe(x1,y1,x2,y2,long=200)  :
+    cmd='adb shell input swipe {0} {1} {2} {3} {4}'.format(x1,y1,x2,y2,long)
+    return os.system(cmd)
+
 if __name__=='__main__':
-    print(screen_shot(_print=True))
+    tap(300,300)
+    swipe(300,300,300,800)
