@@ -51,6 +51,22 @@ def swipe(x1,y1,x2,y2,long=200)  :
     cmd='adb shell input swipe {0} {1} {2} {3} {4}'.format(x1,y1,x2,y2,long)
     return os.system(cmd)
 
+def unlock(password=''):
+    cmd='adb shell input keyevent 82'
+    os.system(cmd)
+    return input_text(password)
+
+def play():
+    cmd='adb shell input keyevent KEYCODE_MEDIA_PLAY'
+    return os.system(cmd)
+
+def stop():
+    cmd='adb shell input keyevent KEYCODE_MEDIA_STOP'
+    return os.system(cmd)
+
+def input_text(text=''):
+    cmd='adb shell input text {}'.format(text)
+    return os.system(cmd)
+
 if __name__=='__main__':
-    tap(300,300)
-    swipe(300,300,300,800)
+    unlock('091297')
